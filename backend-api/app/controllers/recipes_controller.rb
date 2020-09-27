@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
   
       def update
         @recipe = Recipe.find(params[:id])
-        @recipe.update(name: params["recipe"]["name"])
+        @recipe.update(name: params["recipe"]["name"], recipe_img: params["recipe"]["recipe_img"], ingredients: params["recipe"]["ingredients"], instructions: params["recipe"]["instructions"])
         @recipe.save
         render json: @recipe
       end
@@ -34,6 +34,6 @@ class RecipesController < ApplicationController
       private
   
       def recipe_params
-        params.require(:recipe).permit(:recipe_img, :ingredients, :instructions)
+        params.require(:recipe).permit(:name, :recipe_img, :ingredients, :instructions)
       end
 end
