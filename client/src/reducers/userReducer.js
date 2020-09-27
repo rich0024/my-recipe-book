@@ -3,6 +3,8 @@ const userReducer = (state={user: {}, loggedIn: false}, action) => {
         case 'LOGIN_USER':
             return {user: action.user, loggedIn: true}
         case 'CREATE_USER':
+            return {user: action.user, loggedIn: true}
+        case 'LOGOUT_USER':
             return {user: action.user, loggedIn: false}
 
         default:

@@ -33,4 +33,11 @@ export const createUser = (newUser) => {
         .then(data => dispatch({type: 'CREATE_USER', user: data})
         )
     };
-};
+}
+
+// export const logoutUser = () => {
+//     return fetch(`http://localhost:3000/logout`, {
+//         method: 'DELETE',
+//         credentials: 'include'
+//     }).then(res => res.json())
+// }
