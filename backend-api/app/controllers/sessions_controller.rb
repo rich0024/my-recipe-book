@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
 
     def create #login
-        @user = User.find_by(:email => params[:user][:email])
-        if @user && @user.authenticate(params[:user][:password])
-            created_jwt = encode_token(id: @user.id)
+        user = User.find_by(:email => params[:user][:email])
+        if user && user.authenticate(params[:user][:password])
+            created_jwt = encode_token(id: user.id)
             cookies.signed[:jwt] = {value: created_jwt, httponly: true}
 
-            render json: @user
+            render json: user
         else 
             render json: {
                 error: "error logging in"

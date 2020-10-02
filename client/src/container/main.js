@@ -20,6 +20,5 @@ class Main extends Component {
         )
     }
 }
- 
 
-export default connect(null, loginUser, createUser)(Main)
+export default connect(null, {loginUser, createUser})(Main)

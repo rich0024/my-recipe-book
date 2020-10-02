@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/userAction'
 
-export class login extends Component {
+class Login extends Component {
     state = {
         email: "",
         password: ""
@@ -19,7 +20,9 @@ export class login extends Component {
         this.props.loginUser({
             email: this.state.email,
             password: this.state.password
-        })
+        }, () => {
+            this.props.history.push("/recipes")
+        });
         this.setState({
             email: "",
             password: ""
@@ -42,4 +45,11 @@ export class login extends Component {
     }
 }
 
-export default connect(null, { loginUser }) (login)
+const mapStateToProps = ({user}) => {
+    return {
+        user
+    }
+}
+
+
+export default connect(mapStateToProps, {loginUser})(withRouter(Login))

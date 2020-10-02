@@ -1,8 +1,10 @@
-import React from 'react';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import React, {Component} from 'react';
+import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import Main from './container/main';
-import About from './components/about'
+import About from './components/about';
+import Recipes from './container/recipes';
+import {connect} from 'react-redux'
 
 function App() {
   return (
@@ -10,9 +12,16 @@ function App() {
       <BrowserRouter>
         <Route exact path='/' component={Main} />
         <Route exact path='/about' component={About} /> 
+        <Route exact path='/recipes' component={Recipes} />         
       </BrowserRouter>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = ({ user }) => {
+  return {
+      user
+  }
+}
+
+export default connect(mapStateToProps) (App)
