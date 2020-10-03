@@ -3,9 +3,12 @@ const recipeReducer = (state= [], action) => {
         
         case 'CREATE_RECIPE':
             return (
-                action.jobs
+                action.Recipedata
             )
-
+        case 'ADD_RECIPES':
+            return (
+                action.recipes
+            )
         default:
             return state
     }

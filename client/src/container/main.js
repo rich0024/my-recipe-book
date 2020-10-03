@@ -21,4 +21,10 @@ class Main extends Component {
     }
 }
 
-export default connect(null, {loginUser, createUser})(Main)
+const mapStateToProps = ({ user }) => {
+    return{
+        user: user
+    }
+}
+
+export default connect(mapStateToProps, {loginUser, createUser})(Main)

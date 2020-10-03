@@ -31,14 +31,14 @@ export class Cook extends Component {
         return (
             <div>
                 <form onSubmit={this.handleOnSubmit}>
-                    <h2>Sign Up!</h2>
+                    <h2>Add Recipe!</h2>
                     <input type="name" name="name" placeholder="name" value={this.state.username} onChange={this.handleOnChange} />
                     <br></br>
                     <input type="picture" name="picture" placeholder="picture" value={this.state.picture} onChange={this.handleOnChange} />
                     <br></br>
-                    <input type="ingredients" name="ingredients" placeholder="ingredients" value={this.state.ingredients} onChange={this.handleOnChange} />
+                    <textarea type="ingredients" name="ingredients" placeholder="ingredients" value={this.state.ingredients} onChange={this.handleOnChange} />
                     <br></br>
-                    <input type="instructions" name="instructions" placeholder="instructions" value={this.state.instructions} onChange={this.handleOnChange} />
+                    <textarea type="instructions" name="instructions" placeholder="instructions" value={this.state.instructions} onChange={this.handleOnChange} />
                     <br></br>
                     <input type="submit"/>
                 </form>
