@@ -3,25 +3,35 @@ import { BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import Main from './container/main';
 import About from './components/about';
+import User from './components/user';
+import { getUser } from './actions/userAction';
 import Recipes from './container/recipes';
 import {connect} from 'react-redux'
 
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Route exact path='/' component={Main} />
-        <Route exact path='/about' component={About} /> 
-        <Route exact path='/recipes' component={Recipes} />         
-      </BrowserRouter>
-    </div>
-  );
-}
+class App extends Component{
 
-const mapStateToProps = ({ user }) => {
-  return {
-      user
+  componentDidMount() {
+    this.props.getUser()
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Route exact path='/' component={Main} />
+          <Route exact path='/about' component={About} /> 
+          <Route exact path='/recipes' component={Recipes} />
+          <Route exact path='/user' component={User} />
+        </BrowserRouter>
+      </div>
+    );
   }
 }
 
-export default connect(mapStateToProps) (App)
+  const mapStateToProps = ({ user }) => {
+    return {
+        user
+    }
+  }
+
+export default connect(mapStateToProps, {getUser}) (App)

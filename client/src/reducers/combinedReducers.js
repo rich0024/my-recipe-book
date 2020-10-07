@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import userReducer from './userReducer'
 import recipeReducer from './recipeReducer'
-// import savedRecipesReducer from './savedRecipesReducer'
+import myRecipeReducer from './myRecipeReducer'
 
 const rootReducer = combineReducers({
     user: userReducer,
-    recipes: recipeReducer
-    // savedRecipes: savedRecipesReducer
+    recipes: recipeReducer,
+    myRecipes: myRecipeReducer
 })
 
 export default rootReducer

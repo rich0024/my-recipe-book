@@ -21,4 +21,12 @@ class SessionsController < ApplicationController
             message: "Successfully logged out"
         }
     end
+
+    def currentUser
+        if logged_in?
+            render json: serializer_user(current_user)
+        else
+            render json: {error: "user not logged in."}
+        end
+    end
 end

@@ -42,8 +42,8 @@ export const loginUser = (user, callback) => async(dispatch) => {
 }
 
 export const createUser = (newUser, callback) => {
-    return (dispatch) => {
-        return fetch("http://localhost:3000/users", {
+    return async (dispatch) => {
+        const res = await fetch("http://localhost:3000/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -56,23 +56,49 @@ export const createUser = (newUser, callback) => {
                 }
             })
         })
-        .then(res => res.json())
-        .then(userdata => {
-            if (userdata.error) {
-                alert(userdata.details)
-            } else {
-                // const authentication_token = userdata.data.attributes.authentication_token;
-                // localStorage.setItem('token', authentication_token);
-                dispatch({ type: "CREATE_USER", payload:userdata})
-                callback();
-            }
-        })
+        const userdata = await res.json()
+        if (userdata.error) {
+            alert(userdata.details)
+            dispatch({type: "LOGOUT_USER", payload: userdata})
+        } else {
+            // const authentication_token = userdata.data.attributes.authentication_token;
+            // localStorage.setItem('token', authentication_token);
+            dispatch({ type: "CREATE_USER", payload: userdata })
+            callback()
+        }
     };
 }
 
-// export const logoutUser = () => {
-//     return fetch(`http://localhost:3000/logout`, {
-//         method: 'DELETE',
-//         credentials: 'include'
-//     }).then(res => res.json())
-// }
+export const getUser = () => { 
+    return dispatch => {   
+        return fetch("http://localhost:3000/currentUser", {  
+            credentials: "include",         
+            headers: {            
+                "Content-Type": "application/json"          
+                }
+            })        
+            .then(res => res.json())        
+            .then(resp => {          
+                if (resp.error) {            
+                    alert(resp.error)          
+                } else {            
+                    dispatch({type: "LOGIN_USER", user: resp})          
+                }
+            })        
+    }
+}
+
+
+export const logoutUser = (callback) => {
+    return async dispatch => {
+        const data = await fetch(`http://localhost:3000/logout`, {
+            method: "DELETE",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        dispatch({ type: "LOGOUT_USER" })
+        callback()
+    }
+}

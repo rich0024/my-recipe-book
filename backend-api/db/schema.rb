@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_012700) do
+ActiveRecord::Schema.define(version: 2020_10_06_234000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "my_recipes", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "recipe_id"
+    t.index ["recipe_id"], name: "index_my_recipes_on_recipe_id"
+    t.index ["user_id"], name: "index_my_recipes_on_user_id"
+  end
 
   create_table "recipes", force: :cascade do |t|
     t.string "recipe_img"

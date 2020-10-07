@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { logoutUser } from '../actions/userAction'
+import { withRouter } from 'react-router-dom'
+import { logoutUser } from '../actions/userAction'
 
 export class signout extends Component {
+
     handleOnClick = () => {
-        return fetch(`http://localhost:3000/logout`, {
-            method: 'DELETE',
-            credentials: 'include'
-        }).then(res => res.json())
+            this.props.logoutUser(() => {this.props.history.push("/")})
     }
+        
 
     render() {
         return (
@@ -18,4 +18,5 @@ export class signout extends Component {
         )
     }
 }
-export default connect(null) (signout)
+
+export default connect(null, {logoutUser}) (withRouter(signout))

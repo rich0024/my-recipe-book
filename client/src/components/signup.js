@@ -22,7 +22,7 @@ export class signUp extends Component {
             email: this.state.email,
             password: this.state.password
         }, () => {
-            this.props.history.push("/about");
+            this.props.history.push("/recipes");
         });
         this.setState({
             username: "",

@@ -18,7 +18,7 @@ const renderRecipes = (props) => {
     })
 }
 
-const Feed = props => {
+const userFeed = props => {
     return(
         <div className="recipe-container">
             {renderRecipes(props)}
@@ -26,4 +26,4 @@ const Feed = props => {
     )
 }
 
-export default Feed
+export default userFeed

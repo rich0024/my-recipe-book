@@ -14,7 +14,7 @@ class Main extends Component {
             <div>
                 <Login loginUser={this.props.loginUser}/>
                 <p>or</p>
-                <SignUp createUser={this.props.createUser}/>
+                <SignUp />
                 <SignOut />
             </div>
         )

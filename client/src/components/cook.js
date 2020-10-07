@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createRecipe } from '../actions/recipeAction'
+import { createRecipe, fetchRecipes} from '../actions/recipeAction';
 
 export class Cook extends Component {
     state = {
@@ -17,7 +17,6 @@ export class Cook extends Component {
     }
 
     handleOnSubmit = event => {
-        event.preventDefault()
         this.props.createRecipe(this.state);
         this.setState({
             name: "",
@@ -47,4 +46,9 @@ export class Cook extends Component {
     }
 }
 
-export default connect(null, { createRecipe }) (Cook)
+const mapStateToProps = ({ recipes }) => {
+    return{
+        recipes: recipes
+    }
+}
+export default connect(mapStateToProps, { createRecipe, fetchRecipes }) (Cook)
