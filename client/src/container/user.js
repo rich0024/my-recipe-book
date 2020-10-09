@@ -1,29 +1,23 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import Cook from '../components/cook';
 import LoggedInMenu from '../components/loggedInMenu';
-import Feed from '../components/feed';
+import UserFeed from '../components/userFeed';
 import SignOut from '../components/signout';
 import {getUser, logoutUser} from '../actions/userAction';
-import {createRecipe, fetchRecipes} from '../actions/recipeAction';
-// import {fetchMyRecipes} from '../actions/myRecipeAction';
+import { fetchRecipes } from '../actions/recipeAction';
 
-
-class Recipes extends Component {
+class User extends Component {
     componentWillMount() {
         this.props.fetchRecipes()
         this.props.getUser()
     }
-
+    
     render() {
         return (
             <div>
                 <LoggedInMenu />
-                <Cook createRecipe={this.props.createRecipe}/>
-                <Feed 
-                recipes={this.props.recipes}
-                currentUser={this.props.user} />
                 <SignOut />
+                <UserFeed currentUser={this.props.user} />
             </div>
         )
     }
@@ -36,4 +30,5 @@ const mapStateToProps = ({ recipes, user }) => {
     }
 }
 
-export default connect(mapStateToProps, {getUser, logoutUser, createRecipe, fetchRecipes })(Recipes)
+export default connect(mapStateToProps, { getUser, logoutUser, fetchRecipes })(User)
+

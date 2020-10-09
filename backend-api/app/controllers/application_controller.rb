@@ -14,7 +14,7 @@ class ApplicationController < ActionController::API
     end
     
     def serializer_user(user)
-        { username: user.username, email:user.email, id: user.id}
+        { username: user.username, email:user.email, id: user.id, my_recipes: user.my_recipes, recipes: user.recipes }
     end
 
     def encode_token(payload)

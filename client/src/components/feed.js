@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addRecipe } from '../actions/myRecipeAction'
 
-const renderRecipes = (props) => {
-    return props.recipes.reverse().map(recipe => {
+class Feed extends Component {
+    handleOnClick = event => {
+        this.props.addRecipe({
+            recipeId: event.target.value,
+            userId: this.props.currentUser.user.id
+        })
+    }
+
+    renderRecipes = (recipes) => {
+    return recipes.reverse().map(recipe => {
         return (
             <div className="display-linebreak">
                 <h1>{recipe.name}</h1>
@@ -13,17 +23,20 @@ const renderRecipes = (props) => {
                 <br></br>
                 <h3>Instructions</h3>
                 <text>{recipe.instructions}</text>
+                <br></br>
+                <button onClick={this.handleOnClick} value={recipe.id}>Add Recipe</button>
             </div>
-        )
-    })
+            )
+        })
+    }
+
+    render() {
+        return(
+            <div className="recipe-container">
+                {this.renderRecipes(this.props.recipes)}
+            </div>
+            )
+        }
 }
 
-const Feed = props => {
-    return(
-        <div className="recipe-container">
-            {renderRecipes(props)}
-        </div>
-    )
-}
-
-export default Feed
+export default connect(null, {addRecipe})(Feed)

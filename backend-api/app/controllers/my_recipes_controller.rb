@@ -1,7 +1,7 @@
 class MyRecipesController < ApplicationController
     def index
         my_recipes = MyRecipe.all
-        render json: recipes
+        render json: my_recipes
     end
 
     def create

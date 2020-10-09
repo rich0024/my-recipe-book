@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import { BrowserRouter, Route} from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Main from './container/main';
 import About from './components/about';
-import User from './components/user';
+import User from './container/user';
 import { getUser } from './actions/userAction';
 import Recipes from './container/recipes';
 import {connect} from 'react-redux'
 
 class App extends Component{
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.getUser()
   }
 
@@ -30,7 +30,7 @@ class App extends Component{
 
   const mapStateToProps = ({ user }) => {
     return {
-        user
+        user: user
     }
   }
 

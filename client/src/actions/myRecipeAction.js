@@ -1,6 +1,6 @@
-export const createRecipe = (addRecipe) => {
+export const addRecipe = (addRecipe) => {
     return (dispatch) => {
-        return fetch("http://localhost:3000/myrecipes", {
+        return fetch("http://localhost:3000/my_recipes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -19,14 +19,28 @@ export const createRecipe = (addRecipe) => {
             } else {
                 // const authentication_token = Recipedata.data.attributes.authentication_token;
                 // localStorage.setItem('token', authentication_token);
+                alert("Recipe Added")
                 dispatch({ type: "CREATE_MY_RECIPE", recipe: Recipedata})
             }
         })
     };
 }
 
-export const fetchMyRecipes = (id) => async(dispatch) => {
-    const res = await fetch(`http://localhost:3000/users/${id}`)
-    .then(res => res.json())
-    dispatch({type: 'GET_MY_RECIPES', recipes: res}) 
+export const removeRecipe = (id) => {
+    return async dispatch => {
+        const data = await fetch(`http://localhost:3000/my_recipes/${id}`, {
+            method: "DELETE",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        dispatch({ type: "REMOVE_RECIPE" })
+    }
 }
+
+// export const fetchMyRecipes = (id) => async(dispatch) => {
+//     const res = await fetch(`http://localhost:3000/users/${id}`)
+//     .then(res => res.json())
+//     dispatch({type: 'GET_MY_RECIPES', myRecipes: res}) 
+// }
