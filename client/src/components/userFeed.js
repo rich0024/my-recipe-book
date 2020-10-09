@@ -30,17 +30,22 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeRecipe } from '../actions/myRecipeAction'
+import { removeRecipe } from '../actions/userAction'
 
 class UserFeed extends Component {
+    shouldComponentUpdate() {
+        return true
+    }
+
     handleOnClick = event => {
-        let joint = this.props.currentUser.user.my_recipes.filter(join => join.user_id == this.props.currentUser.user.id)
-        let id = joint.find(table => table.recipe_id == event.target.value).id
-        this.props.removeRecipe(id)
+        let joint = this.props.currentUser.my_recipes.find(join => join.recipe_id == event.target.value)
+        let id = joint.id
+        let recipeId = event.target.value
+        this.props.removeRecipe(id, recipeId)
     }
 
     renderMyRecipes = (props) => {
-        return props.user.recipes.reverse().map(recipe => {
+        return props.recipes.map(recipe => {
             return (
                 <div className="display-linebreak">
                     <h1>{recipe.name}</h1>
@@ -69,4 +74,10 @@ class UserFeed extends Component {
         }
 }
 
-export default connect(null, {removeRecipe})(UserFeed)
+const mapStateToProps = ({ user }) => {
+    return{
+        user: user
+    }
+}
+
+export default connect(mapStateToProps, {removeRecipe})(UserFeed)

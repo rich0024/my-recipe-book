@@ -1,17 +1,15 @@
 const recipeReducer = (state= [], action) => {
-    switch(action.type) {
+    const newState = [...state];
         
-        case 'CREATE_RECIPE':
-            return (
-                action.recipe
-            )
-        case 'ADD_RECIPES':
-            return (
-                action.recipes
-            )
-        default:
-            return state
-    }
+        if(action.type === 'CREATE_RECIPE'){
+                newState.unshift(action.recipe)
+            }
+        if(action.type === 'ADD_RECIPES'){
+            action.recipes.forEach(recipe => {
+                newState.push(recipe)
+            });
+            }
+        return newState
 }
 
 export default recipeReducer

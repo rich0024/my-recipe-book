@@ -6,12 +6,12 @@ class Feed extends Component {
     handleOnClick = event => {
         this.props.addRecipe({
             recipeId: event.target.value,
-            userId: this.props.currentUser.user.id
+            userId: this.props.currentUser.id
         })
     }
 
     renderRecipes = (recipes) => {
-    return recipes.reverse().map(recipe => {
+    return recipes.map(recipe => {
         return (
             <div className="display-linebreak">
                 <h1>{recipe.name}</h1>

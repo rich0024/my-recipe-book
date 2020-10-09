@@ -102,3 +102,17 @@ export const logoutUser = (callback) => {
         callback()
     }
 }
+
+export const removeRecipe = (id, recipeId) => {
+    return async dispatch => {
+        const data = await fetch(`http://localhost:3000/my_recipes/${id}`, {
+            method: "DELETE",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        alert("Recipe Removed")
+        dispatch({ type: "REMOVE_RECIPE", id: id, recipeId: recipeId })
+    }
+}

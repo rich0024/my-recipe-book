@@ -10,6 +10,10 @@ export class Cook extends Component {
         instructions: ""
     }
 
+    shouldComponentUpdate() {
+        return true
+    }
+
     handleOnChange = event => {
         this.setState({
             [event.target.name]: event.target.value
@@ -17,6 +21,7 @@ export class Cook extends Component {
     }
 
     handleOnSubmit = event => {
+        event.preventDefault()
         this.props.createRecipe(this.state);
         this.setState({
             name: "",
@@ -31,7 +36,7 @@ export class Cook extends Component {
             <div>
                 <form onSubmit={this.handleOnSubmit}>
                     <h2>Add Recipe!</h2>
-                    <input type="name" name="name" placeholder="name" value={this.state.username} onChange={this.handleOnChange} />
+                    <input type="name" name="name" placeholder="name" value={this.state.name} onChange={this.handleOnChange} />
                     <br></br>
                     <input type="picture" name="picture" placeholder="picture" value={this.state.picture} onChange={this.handleOnChange} />
                     <br></br>

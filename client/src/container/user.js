@@ -8,8 +8,12 @@ import { fetchRecipes } from '../actions/recipeAction';
 
 class User extends Component {
     componentWillMount() {
-        this.props.fetchRecipes()
+//        this.props.fetchRecipes()
         this.props.getUser()
+    }
+
+    shouldComponentUpdate() {
+        return true
     }
     
     render() {
@@ -17,15 +21,15 @@ class User extends Component {
             <div>
                 <LoggedInMenu />
                 <SignOut />
-                <UserFeed currentUser={this.props.user} />
+                <UserFeed currentUser={this.props.user[0]} />
             </div>
         )
     }
 }
 
-const mapStateToProps = ({ recipes, user }) => {
+const mapStateToProps = ({ user }) => {
     return{
-        recipes: recipes,
+//        recipes: recipes,
         user: user
     }
 }

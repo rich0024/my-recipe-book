@@ -20,13 +20,13 @@ export const addRecipe = (addRecipe) => {
                 // const authentication_token = Recipedata.data.attributes.authentication_token;
                 // localStorage.setItem('token', authentication_token);
                 alert("Recipe Added")
-                dispatch({ type: "CREATE_MY_RECIPE", recipe: Recipedata})
+                dispatch({ type: "CREATE_MY_RECIPE"})
             }
         })
     };
 }
 
-export const removeRecipe = (id) => {
+export const removeRecipe = (id, recipeId) => {
     return async dispatch => {
         const data = await fetch(`http://localhost:3000/my_recipes/${id}`, {
             method: "DELETE",
@@ -35,7 +35,7 @@ export const removeRecipe = (id) => {
                 "Content-Type": "application/json",
             }
         })
-        dispatch({ type: "REMOVE_RECIPE" })
+        dispatch({ type: "REMOVE_RECIPE", id: id, recipeId: recipeId })
     }
 }
 

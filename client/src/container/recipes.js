@@ -15,15 +15,19 @@ class Recipes extends Component {
         this.props.getUser()
     }
 
+    shouldComponentUpdate() {
+        return true
+    }
+
     render() {
         return (
             <div>
                 <LoggedInMenu />
+                <SignOut />
                 <Cook createRecipe={this.props.createRecipe}/>
                 <Feed 
                 recipes={this.props.recipes}
-                currentUser={this.props.user} />
-                <SignOut />
+                currentUser={this.props.user[0]} />
             </div>
         )
     }
