@@ -6,7 +6,7 @@ const recipeReducer = (state= [], action) => {
             }
         if(action.type === 'ADD_RECIPES'){
             action.recipes.forEach(recipe => {
-                newState.push(recipe)
+                newState.unshift(recipe)
             });
             }
         return newState

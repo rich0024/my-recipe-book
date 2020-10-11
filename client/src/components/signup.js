@@ -21,9 +21,7 @@ export class signUp extends Component {
             username: this.state.username,
             email: this.state.email,
             password: this.state.password
-        }, () => {
-            this.props.history.push("/recipes");
-        });
+        })
         this.setState({
             username: "",
             email: "",
@@ -49,4 +47,4 @@ export class signUp extends Component {
     }
 }
 
-export default connect(null, { createUser }) (signUp)
+export default connect(null, { createUser })(signUp)

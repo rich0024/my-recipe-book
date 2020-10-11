@@ -19,10 +19,10 @@ class Feed extends Component {
                 <img src={recipe.recipe_img} alt="new"/>
                 <br></br>
                 <h3>Ingredients</h3>
-                <text>{recipe.ingredients}</text>
+                <p>{recipe.ingredients}</p>
                 <br></br>
                 <h3>Instructions</h3>
-                <text>{recipe.instructions}</text>
+                <p>{recipe.instructions}</p>
                 <br></br>
                 <button onClick={this.handleOnClick} value={recipe.id}>Add Recipe</button>
             </div>
@@ -32,7 +32,7 @@ class Feed extends Component {
 
     render() {
         return(
-            <div className="recipe-container">
+            <div className="recipe-feed">
                 {this.renderRecipes(this.props.recipes)}
             </div>
             )

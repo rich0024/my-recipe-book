@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export class LoggedInMenu extends Component {
     render() {
         return (
-            <div>
+            <div className='navigation-menu'>
                 <Link to="/about">About</Link>--
                 <Link to="/user">My Recipes</Link>--
                 <Link to="/recipes">Recipes</Link>

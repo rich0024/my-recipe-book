@@ -4,8 +4,8 @@ import Cook from '../components/cook';
 import LoggedInMenu from '../components/loggedInMenu';
 import Feed from '../components/feed';
 import SignOut from '../components/signout';
-import {getUser, logoutUser} from '../actions/userAction';
-import {createRecipe, fetchRecipes} from '../actions/recipeAction';
+import {getUser} from '../actions/userAction';
+import {fetchRecipes} from '../actions/recipeAction';
 // import {fetchMyRecipes} from '../actions/myRecipeAction';
 
 
@@ -15,16 +15,16 @@ class Recipes extends Component {
         this.props.getUser()
     }
 
-    shouldComponentUpdate() {
-        return true
-    }
+    // shouldComponentUpdate() {
+    //     return true
+    // }
 
     render() {
         return (
-            <div>
+            <div className='recipe-container'>
                 <LoggedInMenu />
                 <SignOut />
-                <Cook createRecipe={this.props.createRecipe}/>
+                <Cook />
                 <Feed 
                 recipes={this.props.recipes}
                 currentUser={this.props.user[0]} />
@@ -40,4 +40,4 @@ const mapStateToProps = ({ recipes, user }) => {
     }
 }
 
-export default connect(mapStateToProps, {getUser, logoutUser, createRecipe, fetchRecipes })(Recipes)
+export default connect(mapStateToProps, {getUser, fetchRecipes })(Recipes)

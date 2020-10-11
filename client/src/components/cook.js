@@ -10,9 +10,9 @@ export class Cook extends Component {
         instructions: ""
     }
 
-    shouldComponentUpdate() {
-        return true
-    }
+    // shouldComponentUpdate() {
+    //     return true
+    // }
 
     handleOnChange = event => {
         this.setState({
@@ -56,4 +56,5 @@ const mapStateToProps = ({ recipes }) => {
         recipes: recipes
     }
 }
+
 export default connect(mapStateToProps, { createRecipe, fetchRecipes }) (Cook)

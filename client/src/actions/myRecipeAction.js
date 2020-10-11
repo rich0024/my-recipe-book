@@ -26,18 +26,18 @@ export const addRecipe = (addRecipe) => {
     };
 }
 
-export const removeRecipe = (id, recipeId) => {
-    return async dispatch => {
-        const data = await fetch(`http://localhost:3000/my_recipes/${id}`, {
-            method: "DELETE",
-            credentials: "include",
-            headers: {
-                "Content-Type": "application/json",
-            }
-        })
-        dispatch({ type: "REMOVE_RECIPE", id: id, recipeId: recipeId })
-    }
-}
+// export const removeRecipe = (id, recipeId) => {
+//     return async dispatch => {
+//         const data = await fetch(`http://localhost:3000/my_recipes/${id}`, {
+//             method: "DELETE",
+//             credentials: "include",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             }
+//         })
+//         dispatch({ type: "REMOVE_RECIPE", id: id, recipeId: recipeId })
+//     }
+// }
 
 // export const fetchMyRecipes = (id) => async(dispatch) => {
 //     const res = await fetch(`http://localhost:3000/users/${id}`)

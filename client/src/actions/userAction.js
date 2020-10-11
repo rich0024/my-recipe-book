@@ -59,12 +59,11 @@ export const createUser = (newUser, callback) => {
         const userdata = await res.json()
         if (userdata.error) {
             alert(userdata.details)
-            dispatch({type: "LOGOUT_USER", payload: userdata})
         } else {
             // const authentication_token = userdata.data.attributes.authentication_token;
             // localStorage.setItem('token', authentication_token);
-            dispatch({ type: "CREATE_USER", payload: userdata })
-            callback()
+            dispatch({ type: "CREATE_USER", user: userdata })
+            alert("Thank you for signing up! You may now login")
         }
     };
 }
@@ -80,7 +79,7 @@ export const getUser = () => {
             .then(res => res.json())        
             .then(resp => {          
                 if (resp.error) {            
-                    alert(resp.error)          
+                    // alert(resp.error)          
                 } else {            
                     dispatch({type: "LOGIN_USER", user: resp})          
                 }

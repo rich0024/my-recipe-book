@@ -1,41 +1,11 @@
-// import React from 'react'
-
-// const renderMyRecipes = (props) => {
-//     return props.user.user.recipes.reverse().map(recipe => {
-//         return (
-//             <div className="display-linebreak">
-//                 <h1>{recipe.name}</h1>
-//                 <br></br>
-//                 <img src={recipe.recipe_img} alt="new"/>
-//                 <br></br>
-//                 <h3>Ingredients</h3>
-//                 <text>{recipe.ingredients}</text>
-//                 <br></br>
-//                 <h3>Instructions</h3>
-//                 <text>{recipe.instructions}</text>
-//             </div>
-//         )
-//     })
-// }
-
-// const userFeed = props => {
-//     return(
-//         <div className="recipe-container">
-//             {renderMyRecipes(props)}
-//         </div>
-//     )
-// }
-
-// export default userFeed
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeRecipe } from '../actions/userAction'
 
 class UserFeed extends Component {
-    shouldComponentUpdate() {
-        return true
-    }
+    // shouldComponentUpdate() {
+    //     return true
+    // }
 
     handleOnClick = event => {
         let joint = this.props.currentUser.my_recipes.find(join => join.recipe_id == event.target.value)
@@ -48,15 +18,15 @@ class UserFeed extends Component {
         return props.recipes.map(recipe => {
             return (
                 <div className="display-linebreak">
-                    <h1>{recipe.name}</h1>
+                    <h2>{recipe.name}</h2>
                     <br></br>
                     <img src={recipe.recipe_img} alt="new"/>
                     <br></br>
                     <h3>Ingredients</h3>
-                    <text>{recipe.ingredients}</text>
+                    <p>{recipe.ingredients}</p>
                     <br></br>
                     <h3>Instructions</h3>
-                    <text>{recipe.instructions}</text>
+                    <p>{recipe.instructions}</p>
                     <br></br>
                     <button onClick={this.handleOnClick} value={recipe.id}>Remove Recipe</button>
                 </div>
@@ -68,6 +38,7 @@ class UserFeed extends Component {
     render() {
         return(
             <div className="recipe-container">
+                <h1>{this.props.currentUser.username}'s Recipe Book</h1>
                 {this.renderMyRecipes(this.props.currentUser)}
             </div>
             )

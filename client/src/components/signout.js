@@ -12,7 +12,7 @@ export class signout extends Component {
 
     render() {
         return (
-            <div>
+            <div className='signout-button'>
                 <button onClick={this.handleOnClick}>Sign Out</button>
             </div>
         )
