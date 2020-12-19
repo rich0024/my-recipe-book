@@ -3,10 +3,20 @@ import { connect } from 'react-redux';
 import { addRecipe } from '../actions/myRecipeAction'
 
 class Feed extends Component {
+    state = {
+        likes: 0
+    }
+
     handleOnClick = event => {
         this.props.addRecipe({
             recipeId: event.target.value,
             userId: this.props.currentUser.id
+        })
+    }
+
+    handleOnClickTwo = event => {
+        this.setState({
+            likes: this.state.likes+1
         })
     }
 
@@ -23,6 +33,8 @@ class Feed extends Component {
                 <br></br>
                 <h3>Instructions</h3>
                 <p>{recipe.instructions}</p>
+                <br></br>
+                <button onClick={this.handleOnClickTwo}>Like {this.state.likes}</button> 
                 <br></br>
                 <button onClick={this.handleOnClick} value={recipe.id}>Add Recipe</button>
             </div>

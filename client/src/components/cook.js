@@ -49,12 +49,8 @@ export class Cook extends Component {
             </div>
         )
     }
+
 }
 
-const mapStateToProps = ({ recipes }) => {
-    return{
-        recipes: recipes
-    }
-}
 
-export default connect(mapStateToProps, { createRecipe, fetchRecipes }) (Cook)
+export default connect(null, { createRecipe, fetchRecipes }) (Cook)

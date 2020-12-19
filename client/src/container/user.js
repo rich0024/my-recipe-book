@@ -9,10 +9,6 @@ class User extends Component {
     componentWillMount() {
         this.props.getUser()
     }
-
-    // shouldComponentUpdate() {
-    //     return true
-    // }
     
     render() {
         return (
