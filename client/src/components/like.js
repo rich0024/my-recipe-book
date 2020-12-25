@@ -4,7 +4,7 @@ export class like extends Component {
     render() {
         return (
             <div>
-                
+                <button>Like</button>
             </div>
         )
     }
