@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Like from 'like'
 import { connect } from 'react-redux';
 import { addRecipe } from '../actions/myRecipeAction'
 
@@ -11,7 +12,7 @@ class Feed extends Component {
     }
 
     renderRecipes = (recipes) => {
-        
+
     return recipes.map(recipe => {
         return (
             <div className="display-linebreak">
@@ -25,7 +26,7 @@ class Feed extends Component {
                 <h3>Instructions</h3>
                 <p>{recipe.instructions}</p>
                 <br></br>
-                <button onClick={this.handleOnClick} value={recipe.id}>Add Recipe</button>
+                <button onClick={this.handleOnClick} value={recipe.id}>Add Recipe</button><Like/>
             </div>
             )
         })
