@@ -11,6 +11,7 @@ class Feed extends Component {
     }
 
     renderRecipes = (recipes) => {
+        
     return recipes.map(recipe => {
         return (
             <div className="display-linebreak">
