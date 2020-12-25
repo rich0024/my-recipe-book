@@ -9,6 +9,7 @@ export default class about extends Component {
                 <LoggedInMenu />
                 <SignOut />
                 <h1>About page</h1>
+                <h2>Upcoming Edits</h2>
                 <p>-Looking to add profiles wih username routes</p>
                 <p>-following certain profiles</p>
                 <p>-upvote/likes</p>
