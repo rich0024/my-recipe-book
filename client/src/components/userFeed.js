@@ -20,7 +20,7 @@ class UserFeed extends Component {
                 <div className="display-linebreak">
                     <h2>{recipe.name}</h2>
                     <br></br>
-                    <img src={recipe.recipe_img} alt="new"/>
+                    <img className="feed" src={recipe.recipe_img} alt="new"/>
                     <br></br>
                     <h3>Ingredients</h3>
                     <p>{recipe.ingredients}</p>

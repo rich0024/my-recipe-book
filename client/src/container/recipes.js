@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Cook from '../components/cook';
 import LoggedInMenu from '../components/loggedInMenu';
 import Feed from '../components/feed';
-import SignOut from '../components/signout';
 import {getUser} from '../actions/userAction';
 import {fetchRecipes} from '../actions/recipeAction';
 // import {fetchMyRecipes} from '../actions/myRecipeAction';
@@ -23,7 +22,6 @@ class Recipes extends Component {
         return (
             <div className='recipe-container'>
                 <LoggedInMenu />
-                <SignOut />
                 <Cook />
                 <Feed 
                 recipes={this.props.recipes}

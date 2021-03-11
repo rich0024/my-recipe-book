@@ -1,7 +1,0 @@
--Looking to add profiles wih username routes
--following certain profiles
--upvote/likes
--tags for searches
--customized feed
--discover section
--updated styling with bootstrap

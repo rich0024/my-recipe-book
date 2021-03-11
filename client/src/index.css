@@ -8,8 +8,11 @@ body {
 }
 
 body {
-  background-color: lightblue;
-  opacity: 1;
+  background-image: url('./assets/restaurant.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover
 }
 
 
@@ -17,16 +20,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.navigation-menu {
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  height: 5%;
+  width: 100%;
+  border-bottom: 3px solid rgb(0, 0, 0);
+}
+.navigation-menu a {
+  float: center;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: unset;
+}
+.navigation-menu a:hover {
+  background-color: tomato;
+}
+.navigation-menu .signout {
+  float: right;
+}
 .display-linebreak {
   white-space: pre-line;
+  margin: auto;
+  border: 3px solid rgb(0, 0, 0);
+  background-color: white;
+  min-height: 400px;
+  padding: 30px 62px;
+  width: 707px;
 }
-
--CSS blueprint
-  -create nav bar with warm colors and recognizable banner/logo
-  -line up and tighten the size of the feed
-  -intigrate sounds for certain click events
-  -graphics for certain events
-  -possible awards to be given to certain recipes
-  -clean cards
-  -profile designs and card layouts

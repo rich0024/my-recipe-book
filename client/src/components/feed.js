@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Like from 'like'
 import { connect } from 'react-redux';
 import { addRecipe } from '../actions/myRecipeAction'
 
@@ -18,7 +17,7 @@ class Feed extends Component {
             <div className="display-linebreak">
                 <h1>{recipe.name}</h1>
                 <br></br>
-                <img src={recipe.recipe_img} alt="new"/>
+                <img className="feed" src={recipe.recipe_img} alt="new"/>
                 <br></br>
                 <h3>Ingredients</h3>
                 <p>{recipe.ingredients}</p>
@@ -26,7 +25,7 @@ class Feed extends Component {
                 <h3>Instructions</h3>
                 <p>{recipe.instructions}</p>
                 <br></br>
-                <button onClick={this.handleOnClick} value={recipe.id}>Add Recipe</button><Like/>
+                <button onClick={this.handleOnClick} value={recipe.id}>Add Recipe</button>
             </div>
             )
         })
