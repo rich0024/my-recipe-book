@@ -21,9 +21,10 @@ code {
     monospace;
 }
 .login-menu {
+  border-radius: 25px;
   white-space: pre-line;
   margin: auto;
-  border: 3px solid rgb(0, 0, 0);
+  border: 8px solid rgb(27, 27, 27);
   background-color: white;
   min-height: 400px;
   padding: 30px 62px;
@@ -37,6 +38,8 @@ code {
 }
 .navigation-menu {
   align-items: center;
+  justify-content: space-around;
+  display: flex;
   background-color: rgb(255, 255, 255);
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
