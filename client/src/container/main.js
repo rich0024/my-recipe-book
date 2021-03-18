@@ -18,7 +18,6 @@ class Main extends Component {
                 <h1>Welcome to RecipeBook!</h1>
                 <img className='menu-img' src={Menu}></img>
                 <Login />
-                <p>or</p>
                 <SignUp />
             </div>
             </div>

@@ -12,8 +12,8 @@ export class signout extends Component {
 
     render() {
         return (
-            <div className='signout-button'>
-                <button onClick={this.handleOnClick}>Sign Out</button>
+            <div>
+                <button  className='signout-button' onClick={this.handleOnClick}>Sign Out</button>
             </div>
         )
     }

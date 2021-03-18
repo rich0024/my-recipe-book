@@ -14,6 +14,7 @@ class Feed extends Component {
 
     return recipes.map(recipe => {
         return (
+            <div>
             <div className="display-linebreak">
                 <h1>{recipe.name}</h1>
                 <br></br>
@@ -26,6 +27,10 @@ class Feed extends Component {
                 <p>{recipe.instructions}</p>
                 <br></br>
                 <button onClick={this.handleOnClick} value={recipe.id}>Add Recipe</button>
+            </div>
+            <br></br>
+            <br></br>
+            <br></br>
             </div>
             )
         })
