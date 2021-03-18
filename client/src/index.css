@@ -38,10 +38,13 @@ code {
   padding: 4px 10px;
 }
 .login-menu h2 {
+  justify-content: center;
+  border-style: solid;
+  border-radius: 25px;
+  border-color:  #000000;
   display: flex;
   margin: auto;
   background-color: #28df5f;
-  border: none;
   color: white;
   padding: 4px 10px;
 }
