@@ -92,7 +92,41 @@ input[type=email], input[type=password], input[type=username]  {
 .navigation-menu .signout {
   float: right;
 }
+.add {
+  display: none;
+  box-shadow: 10px 10px 18px #2e2e2e;
+  border-radius: 25px;
+  border: 8px solid #28df5f;
+  background-color: white;
+  height: 400px;
+  width: 400px;
+  position: fixed;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px; /* Negative half of height. */
+  margin-left: -200px; /* Negative half of width. */
+}
+.add-button {
+  position: fixed;
+  bottom: 10%;
+  right: 19%;
+  background-color: black;
+  border: solid black;
+  color: rgb(250, 250, 250);
+  padding: 14px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.add-button:hover {
+  background-color: #28df5f;
+}
 .display-linebreak {
+  box-shadow: 10px 10px 18px #2e2e2e;
   white-space: pre-line;
   border-radius: 25px;
   margin: auto;
@@ -102,7 +136,6 @@ input[type=email], input[type=password], input[type=username]  {
   padding: 30px 62px;
   width: 500px;
 }
-
 .signout-button {
   background-color: #28df5f;
   border: none;

@@ -13,6 +13,14 @@ export class Cook extends Component {
     // shouldComponentUpdate() {
     //     return true
     // }
+    handleOnClick = event => {
+        if (document.querySelector('.add').style.display == 'none') {
+            document.querySelector('.add').style.display = 'flex'
+        }
+        else {
+            document.querySelector('.add').style.display = 'none'
+        }
+    }
 
     handleOnChange = event => {
         this.setState({
@@ -33,7 +41,10 @@ export class Cook extends Component {
 
     render() {
         return (
-            <div>
+            <div className='cook'>
+            <br></br>
+            <br></br>
+            <div className="add">
                 <form onSubmit={this.handleOnSubmit}>
                     <h2>Add Recipe!</h2>
                     <input type="name" name="name" placeholder="name" value={this.state.name} onChange={this.handleOnChange} />
@@ -46,6 +57,10 @@ export class Cook extends Component {
                     <br></br>
                     <input type="submit"/>
                 </form>
+            </div>
+            <div>
+                <button className='add-button' onClick={this.handleOnClick}>Add a Recipe!</button>
+            </div>
             </div>
         )
     }
