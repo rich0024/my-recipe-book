@@ -6,7 +6,6 @@ class UserFeed extends Component {
     // shouldComponentUpdate() {
     //     return true
     // }
-
     handleOnClick = event => {
         let joint = this.props.currentUser.my_recipes.find(join => join.recipe_id == event.target.value)
         let id = joint.id
@@ -17,6 +16,7 @@ class UserFeed extends Component {
     renderMyRecipes = (props) => {
         return props.recipes.map(recipe => {
             return (
+                <div>
                 <div className="display-linebreak">
                     <h2>{recipe.name}</h2>
                     <br></br>
@@ -28,7 +28,11 @@ class UserFeed extends Component {
                     <h3>Instructions</h3>
                     <p>{recipe.instructions}</p>
                     <br></br>
-                    <button onClick={this.handleOnClick} value={recipe.id}>Remove Recipe</button>
+                    <button className="ur-add" onClick={this.handleOnClick} value={recipe.id}>Remove Recipe</button>
+                </div>
+                <br></br>
+                <br></br>
+                <br></br>
                 </div>
                 )
             }
@@ -38,7 +42,6 @@ class UserFeed extends Component {
     render() {
         return(
             <div className="recipe-container">
-                <h1>{this.props.currentUser.username}'s Recipe Book</h1>
                 {this.renderMyRecipes(this.props.currentUser)}
             </div>
             )

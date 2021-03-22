@@ -23,6 +23,8 @@ class Recipes extends Component {
             <div className='recipe-container'>
                 <LoggedInMenu />
                 <Cook />
+                <br></br>
+                <br></br>
                 <Feed 
                 recipes={this.props.recipes}
                 currentUser={this.props.user[0]} />

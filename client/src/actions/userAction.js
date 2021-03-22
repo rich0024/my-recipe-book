@@ -97,9 +97,10 @@ export const logoutUser = (callback) => {
             headers: {
                 "Content-Type": "application/json",
             }
-        })
-        dispatch({ type: "LOGOUT_USER" })
+        })        
         callback()
+        dispatch({ type: "LOGOUT_USER" })
+
     }
 }
 

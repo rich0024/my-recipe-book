@@ -37,6 +37,7 @@ export class Cook extends Component {
             ingredients: "",
             instructions: ""
         })
+        document.querySelector('.add').style.display = 'none'
     }
 
     render() {
@@ -45,7 +46,7 @@ export class Cook extends Component {
             <br></br>
             <br></br>
             <div className="add">
-                <form onSubmit={this.handleOnSubmit}>
+                <form className="add-form" onSubmit={this.handleOnSubmit}>
                     <h2>Add Recipe!</h2>
                     <input type="name" name="name" placeholder="name" value={this.state.name} onChange={this.handleOnChange} />
                     <br></br>

@@ -26,7 +26,7 @@ class Feed extends Component {
                 <h3>Instructions</h3>
                 <p>{recipe.instructions}</p>
                 <br></br>
-                <button onClick={this.handleOnClick} value={recipe.id}>Add Recipe</button>
+                <button className="ur-add" onClick={this.handleOnClick} value={recipe.id}>Add To Your Book</button>
             </div>
             <br></br>
             <br></br>

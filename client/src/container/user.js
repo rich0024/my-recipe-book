@@ -3,10 +3,12 @@ import {connect} from 'react-redux';
 import LoggedInMenu from '../components/loggedInMenu';
 import UserFeed from '../components/userFeed';
 import SignOut from '../components/signout';
-import { getUser } from '../actions/userAction';
+import {getUser} from '../actions/userAction';
+import {fetchRecipes} from '../actions/recipeAction';
 
 class User extends Component {
     componentWillMount() {
+        this.props.fetchRecipes()
         this.props.getUser()
     }
     
@@ -15,6 +17,7 @@ class User extends Component {
             <div className='user-container'>
                 <LoggedInMenu />
                 <SignOut />
+                <h1>{this.props.user[0].username}'s Recipe Book</h1>
                 <UserFeed currentUser={this.props.user[0]} />
             </div>
         )
@@ -27,5 +30,5 @@ const mapStateToProps = ({ user }) => {
     }
 }
 
-export default connect(mapStateToProps, { getUser })(User)
+export default connect(mapStateToProps, { getUser, fetchRecipes })(User)
 
