@@ -151,3 +151,11 @@ input[type=email], input[type=password], input[type=username]  {
 .signout-button:hover {
   background-color: black;
 }
+.about {
+  box-shadow: 10px 10px 18px #2e2e2e;
+  border-radius: 25px;
+  border: 8px solid rgb(27, 27, 27);
+  background-color: white;
+  justify-self: center;
+  align-self: center;
+}

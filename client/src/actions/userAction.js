@@ -37,8 +37,9 @@ export const loginUser = (user, callback) => async(dispatch) => {
     if (userData.error) {
     alert(userData.error)
     }
+    else {
     dispatch({type: 'LOGIN_USER', user: userData})
-    callback()
+    callback()}
 }
 
 export const createUser = (newUser, callback) => {
