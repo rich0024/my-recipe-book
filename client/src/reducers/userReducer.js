@@ -27,7 +27,6 @@ const userReducer = (state=[], action) => {
     }
     if(action.type === 'REMOVE_RECIPE'){
         newState[0].recipes = newState[0].recipes.filter(recipe => recipe.id != action.recipeId)
-        newState[0].my_recipes = newState[0].my_recipes.filter(recipe => recipe.id !== action.id)
     }
     return newState
 }

@@ -24,7 +24,7 @@
 //}
 
 export const loginUser = (user, callback) => async(dispatch) => {
-    const userData = await fetch("http://localhost:3000/login", {
+    const userData = await fetch("https://warm-island-73271.herokuapp.com/login", {
     method: "POST",
     credentials: "include",
     headers: {
@@ -44,7 +44,7 @@ export const loginUser = (user, callback) => async(dispatch) => {
 
 export const createUser = (newUser, callback) => {
     return async (dispatch) => {
-        const res = await fetch("http://localhost:3000/users", {
+        const res = await fetch("https://warm-island-73271.herokuapp.com/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -71,7 +71,7 @@ export const createUser = (newUser, callback) => {
 
 export const getUser = () => { 
     return dispatch => {   
-        return fetch("http://localhost:3000/currentUser", {  
+        return fetch("https://warm-island-73271.herokuapp.com/currentUser", {  
             credentials: "include",         
             headers: {            
                 "Content-Type": "application/json"          
@@ -91,7 +91,7 @@ export const getUser = () => {
 
 export const logoutUser = (callback) => {
     return async dispatch => {
-        const data = await fetch(`http://localhost:3000/logout`, {
+        const data = await fetch(`https://warm-island-73271.herokuapp.com/logout`, {
             method: "DELETE",
             credentials: "include",
             headers: {
@@ -106,7 +106,7 @@ export const logoutUser = (callback) => {
 
 export const removeRecipe = (id, recipeId) => {
     return async dispatch => {
-        const data = await fetch(`http://localhost:3000/my_recipes/${id}`, {
+        const data = await fetch(`https://warm-island-73271.herokuapp.com/my_recipes/${id}`, {
             method: "DELETE",
             credentials: "include",
             headers: {

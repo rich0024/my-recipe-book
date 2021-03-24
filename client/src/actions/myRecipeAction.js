@@ -1,6 +1,6 @@
 export const addRecipe = (addRecipe) => {
     return (dispatch) => {
-        return fetch("http://localhost:3000/my_recipes", {
+        return fetch("https://warm-island-73271.herokuapp.com/my_recipes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -1,6 +1,6 @@
 export const createRecipe = (newRecipe) => {
     return (dispatch) => {
-        return fetch("http://localhost:3000/recipes", {
+        return fetch("https://warm-island-73271.herokuapp.com/recipes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,7 +28,7 @@ export const createRecipe = (newRecipe) => {
 }
 
 export const fetchRecipes = () => async(dispatch) => {
-    const res = await fetch('http://localhost:3000/recipes')
+    const res = await fetch('https://warm-island-73271.herokuapp.com/recipes')
     .then(res => res.json())
     dispatch({type: 'ADD_RECIPES', recipes: res}) 
 }
