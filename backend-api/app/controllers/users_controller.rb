@@ -28,7 +28,7 @@ class UsersController < ApplicationController
         user = User.new(user_params)
         if user.save
         created_jwt = encode_token({id: user.id})
-        cookies.signed[:jwt] = {value: created_jwt, httponly: true, expires: 1.hour.from_now}
+        cookies.signed[:jwt] = {value: created_jwt, httponly: true, expires: 1.hour.from_now, SameSite=None}
         render json: user
         else
             render json: {error: 'Error creating user'}
