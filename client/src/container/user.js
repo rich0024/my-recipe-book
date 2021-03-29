@@ -16,7 +16,8 @@ class User extends Component {
         return (
             <div className='user-container'>
                 <LoggedInMenu />
-                <SignOut />
+                <br></br>
+                <br></br>
                 <h1>{this.props.user[0].username}'s Recipe Book</h1>
                 <UserFeed currentUser={this.props.user[0]} />
             </div>
@@ -24,8 +25,9 @@ class User extends Component {
     }
 }
 
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = ({ recipes, user }) => {
     return{
+        recipes: recipes,
         user: user
     }
 }

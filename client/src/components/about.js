@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import LoggedInMenu from '../components/loggedInMenu';
-import SignOut from '../components/signout';
 
 export default class about extends Component {
     render() {
